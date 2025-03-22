@@ -1,0 +1,7 @@
+site_name: 26 RCA Museum
+theme:
+  name: null
+  custom_dir: "theme/"
+docs_dir: content
+hooks:
+- hooks.py
