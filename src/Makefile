@@ -2,9 +2,10 @@
 # FIXME
 # slugify
 
-.PHONY: install
-install:
-	# FIXME - install mkdocs and markdown in a venv
+.PHONY: dev
+dev:
+	pipx install mkdocs
+	pipx inject mkdocs mkdocs-material
 
 .PHONY: serve
 serve:
