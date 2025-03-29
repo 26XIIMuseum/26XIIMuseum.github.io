@@ -6,6 +6,7 @@ import markdown
 IMAGE_SUFFIXES = [
   ".jpg",
   ".jpeg",
+  ".png"
 ]
 
 def on_config(config):

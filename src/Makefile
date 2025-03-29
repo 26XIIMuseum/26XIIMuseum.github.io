@@ -2,6 +2,12 @@
 # FIXME
 # slugify
 
+.PONY: help
+help:
+	@echo "serve"
+	@echo "clean"
+	@echo "build"
+
 .PHONY: dev
 dev:
 	pipx install mkdocs
@@ -11,9 +17,10 @@ dev:
 serve:
 	mkdocs serve -v --watch-theme -a 0.0.0.0:8000
 
-.PHONY: mogrify
-mogrify:
-	find content/displays/ -name *.jpg -exec mogrify -resize 1200x800 -background black -gravity center -extent 1200x800 {} \;
+
+.PHONY: img-resize
+img-resize:
+	convert -background none -resize 1200x800 -gravity center -extent 1200x800 -alpha on $(src) $(dst)
 
 # FIXME - create all
 .PHONY: qr-codes
