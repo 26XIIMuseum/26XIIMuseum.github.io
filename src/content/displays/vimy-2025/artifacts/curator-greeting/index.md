@@ -1,5 +1,5 @@
 ---
-title: Curator’s Greeting – Edd McArthur
+title: Curator’s Greeting - Edd McArthur
 ---
 
 Good evening.
