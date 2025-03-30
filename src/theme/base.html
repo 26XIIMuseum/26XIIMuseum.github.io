@@ -23,7 +23,7 @@
     {% if page | is_display %}
     <!-- ARTIFACTS DROPDOWN -->
     <details class="dropdown artifacts-dropdown">
-      <summary role="button" class="secondary outline">Explore</summary>
+      <summary role="button" class="secondary outline artifacts-summary">Explore</summary>
       <ul>
       {% for artifact in page | get_artifacts %}
         <li><a href="{{ artifact.url }}" class="artifact-link">{{ artifact.title }}</a></li>
