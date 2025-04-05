@@ -1,5 +1,8 @@
 ---
 title: Vimy and Beyond Night 2025
+hide:
+- navigation
+- toc
 ---
 
 ## Evening Program

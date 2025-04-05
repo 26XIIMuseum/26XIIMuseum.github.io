@@ -1,7 +1,13 @@
 site_name: 26-XII-Museum
 theme:
-  name: null
-  custom_dir: "theme/"
+  name: material
+  custom_dir: overrides
+  palette:
+    scheme: slate
+  font:
+    text: Roboto    
+extra_css:
+  - stylesheets/extra.css
 docs_dir: content
 hooks:
 - hooks.py
