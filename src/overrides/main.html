@@ -45,17 +45,17 @@
 {% block content %}
   <h1>{{ page.title | d(config.site_name, true)}}</h1>
 
-{% if page | is_display %}
-    <!-- ARTIFACTS DROPDOWN -->
-    <details>
-      <summary>Explore</summary>
-      <ul>
-      {% for artifact in page | get_artifacts %}
-        <li><a href="{{ artifact.url }}" class="artifact-link">{{ artifact.title }}</a></li>
-      {% endfor %}
-      </ul>
-    </details>
-{% endif %}
+	{% if page | is_display %}
+	    <!-- ARTIFACTS DROPDOWN -->
+	    <details>
+	      <summary>Explore</summary>
+	      <ul>
+	      {% for artifact in page | get_artifacts %}
+	        <li><a href="{{ artifact.url }}" class="artifact-link">{{ artifact.title }}</a></li>
+	      {% endfor %}
+	      </ul>
+	    </details>
+	{% endif %}
 
 {{ page.content }}
 
