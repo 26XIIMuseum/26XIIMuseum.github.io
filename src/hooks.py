@@ -1,7 +1,9 @@
 import os
 from pathlib import Path
-
+import logging
 import markdown
+#from bs4 import BeautifulSoup
+import re
 
 IMAGE_SUFFIXES = [
   ".jpg",
@@ -15,7 +17,7 @@ def on_config(config):
 
 
 def is_display(page):
-	return Path(page.url).parent.name == "displays"
+  return Path(page.url).parent.name == "displays"
 
 def is_artifact(page):  
   return Path(page.url).parent.name == "artifacts"
@@ -54,6 +56,26 @@ def get_images(page):
   return [p.name for p in (BASEDIR / page.url).glob("*") if p.suffix in IMAGE_SUFFIXES]
 
 
+def aos(content):
+  aos_content = ""
+  found_h2 = False
+  direction = "left"
+  for line in content.splitlines():
+     if "<h2 id=" in line:
+       if found_h2:
+         aos_content += "\n</div>\n"
+#       aos_content += f'<div data-aos="flip-{direction}">\n'
+       aos_content += f'<div data-aos="zoom-in" data-aos-duration="1000">\n'
+       aos_content += line
+       found_h2 = True
+       direction = "right" if direction == "left" else "left"
+     else:
+       aos_content += line
+  if found_h2:
+    aos_content += "\n</div>\n"        	    
+  return aos_content
+
+
 def on_env(env, config, files):
   env.filters["get_audio"] = get_audio
   env.filters["get_images"] = get_images
@@ -61,4 +83,6 @@ def on_env(env, config, files):
   env.filters["is_artifact"] = is_artifact
   env.filters["get_display"] = get_display  
   env.filters["get_artifacts"] = get_artifacts
+  env.filters["aos"] = aos
   return env
+

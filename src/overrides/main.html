@@ -1,65 +1,25 @@
 {% extends "base.html" %}
 
 {% block header %}
-	{% set class = "md-header" %}
-	{% if "navigation.tabs.sticky" in features %}
-	  {% set class = class ~ " md-header--shadow md-header--lifted" %}
-	{% elif "navigation.tabs" not in features %}
-	  {% set class = class ~ " md-header--shadow" %}
-	{% endif %}
-	<header class="{{ class }}" data-md-component="header">
-	  <nav class="md-header__inner md-grid" aria-label="{{ lang.t('header') }}">
-	    {% if config.theme.palette %}
-	      {% if not config.theme.palette is mapping %}
-	        {% include "partials/palette.html" %}
-	      {% endif %}
-	    {% endif %}
-	    {% if not config.theme.palette is mapping %}
-	      {% include "partials/javascripts/palette.html" %}
-	    {% endif %}
-	    {% if config.extra.alternate %}
-	      {% include "partials/alternate.html" %}
-	    {% endif %}
-	    {% if "material/search" in config.plugins %}
-	      <label class="md-header__button md-icon" for="__search">
-	        {% set icon = config.theme.icon.search or "material/magnify" %}
-	        {% include ".icons/" ~ icon ~ ".svg" %}
-	      </label>
-	      {% include "partials/search.html" %}
-	    {% endif %}
-	    {% if config.repo_url %}
-	      <div class="md-header__source">
-	        {% include "partials/source.html" %}
-	      </div>
-	    {% endif %}
-	  </nav>
-	  {% if "navigation.tabs.sticky" in features %}
-	    {% if "navigation.tabs" in features %}
-	      {% include "partials/tabs.html" %}
-	    {% endif %}
-	  {% endif %}
-	</header>  
 {% endblock %}
 
 
 {% block content %}
   <h1>{{ page.title | d(config.site_name, true)}}</h1>
 
-	{% if page | is_display %}
-	    <!-- ARTIFACTS DROPDOWN -->
-	    <details open>
-	      <summary>{{ page.meta.dropdown | d('EXPLORE') }}</summary>
-	      <ul>
-	      {% for artifact in page | get_artifacts %}
-	        <li><a href="{{ artifact.url }}" class="artifact-link">{{ artifact.title }}</a></li>
-	      {% endfor %}
-	      </ul>
-	    </details>
-	{% endif %}
+{{ page.content | aos }}
 
-{{ page.content }}
+{% endblock %}
 
 {% block footer %}
 {% endblock %}
 
+
+{% block scripts %}
+{{ super() }}
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
 {% endblock %}
+

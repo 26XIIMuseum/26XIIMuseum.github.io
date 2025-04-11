@@ -11,7 +11,7 @@ help:
 .PHONY: dev
 dev:
 	pipx install -f mkdocs==1.6.1
-	pipx inject mkdocs mkdocs-get-deps==0.2.0 mkdocs-material==9.6.9 mkdocs-material-extensions==1.3.1
+	pipx inject mkdocs mkdocs-get-deps==0.2.0 mkdocs-material==9.6.9 mkdocs-material-extensions==1.3.1 beautifulsoup4
 
 .PHONY: serve
 serve:

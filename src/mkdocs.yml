@@ -8,6 +8,7 @@ theme:
     text: Roboto    
 extra_css:
   - stylesheets/extra.css
+  - "https://unpkg.com/aos@next/dist/aos.css"
 docs_dir: content
 hooks:
 - hooks.py
