@@ -47,8 +47,8 @@
 
 	{% if page | is_display %}
 	    <!-- ARTIFACTS DROPDOWN -->
-	    <details>
-	      <summary>Explore</summary>
+	    <details open>
+	      <summary>{{ page.meta.dropdown | d('EXPLORE') }}</summary>
 	      <ul>
 	      {% for artifact in page | get_artifacts %}
 	        <li><a href="{{ artifact.url }}" class="artifact-link">{{ artifact.title }}</a></li>
