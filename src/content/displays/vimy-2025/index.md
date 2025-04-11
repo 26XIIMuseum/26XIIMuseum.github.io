@@ -25,25 +25,27 @@ MC for the evening - Brian Midwinter
 Good evening and thank you for your support.
 
 
-## Greeting From FOO
+
+## Curator’s Greeting - Edd McArthur
+
+Good evening.
+
+I am the curator of the 26th Field Regiment RCA / XII Manitoba Dragoons Museum.
+
+Welcome to our Vimy and Beyond Night.
+
+Enjoy your evening.
+
+Thank you very much.
 
 
-asdlfjsldfk
-lajsdfldsf
 
-asdfljasdfljk
-
-adsklfjasdflj
+## FOMI President’s Greeting - Sandra Armstrong
 
 
+The Friends of the Museum thank you for attending our Victory ’45 fundraising evening. We are currently experiencing a renewed wave of patriotism in Canada.
 
-## Greeting From BAR
+Tonight, we hope to reflect the celebrations of 80 years ago when victory bells rang through the streets, the towns, and the cities of Canada.
 
-
-asdlfjsldfk
-lajsdfldsf
-
-asdfljasdfljk
-
-adsklfjasdflj
+We appreciate all who attend this evening’s celebrations. Thank you for supporting the museum throughout the year.
 

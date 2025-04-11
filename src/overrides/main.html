@@ -5,7 +5,8 @@
 
 
 {% block content %}
-  <h1>{{ page.title | d(config.site_name, true)}}</h1>
+
+<h1>{{ page.title | d(config.site_name, true)}}</h1>
 
 {{ page.content | aos }}
 
