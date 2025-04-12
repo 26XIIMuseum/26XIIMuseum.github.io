@@ -7,8 +7,14 @@ theme:
   font:
     text: Roboto    
 extra_css:
-  - stylesheets/extra.css
-  - "https://unpkg.com/aos@next/dist/aos.css"
+- css/main.css
+- css/swiffy-slider.min.css
+- "https://unpkg.com/aos@next/dist/aos.css"
+extra_javascript:
+- js/swiffy-slider.min.js
 docs_dir: content
 hooks:
 - hooks.py
+plugins:
+- macros
+
