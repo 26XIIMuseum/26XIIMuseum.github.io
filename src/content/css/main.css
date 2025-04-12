@@ -1,0 +1,27 @@
+.md-content, .md-content__inner {
+	margin-top: 0px;
+	padding-top: 0px;	
+}
+
+body, .md-typeset, .md-typeset summary, .md-typeset details, .artifact-link {
+	font-size: 1.4rem;
+}
+
+.md-typeset h1, .md-typeset h2 {
+	text-align: center;
+	font-weight: bold;
+	color: #ddd;
+}
+
+.audio-controls {
+	margin-top: 2rem;
+}
+
+
+[dir=ltr] .md-typeset ol li.swiffy-slide,
+[dir=ltr] .md-typeset ul li.swiffy-slide,
+[dir=ltr] .md-typeset ol.slider-container,
+[dir=ltr] .md-typeset ul.slider-container {
+  margin-left: 0px;
+}
+

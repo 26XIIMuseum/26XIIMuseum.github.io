@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block header %}
+{% endblock %}
+
+
+{% block content %}
+
+<h1>{{ page.title | d(config.site_name, true)}}</h1>
+
+{{ page.content | aos }}
+
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
+
+
+{% block scripts %}
+{{ super() }}
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+{% endblock %}
+

@@ -1,6 +1,11 @@
 ---
 title: Vimy and Beyond Night 2025
+hide:
+- navigation
+- toc
 ---
+
+{{ carousel("content/displays/vimy-2025") }}
 
 ## Evening Program
 
@@ -20,3 +25,32 @@ MC for the evening - Brian Midwinter
 - **9:00**  50/50 Draw winner drawn.
 
 Good evening and thank you for your support.
+
+
+
+## Curator’s Greeting - Edd McArthur
+
+{{ audio("content/displays/vimy-2025/curator-greeting/audio.mp3") }}
+
+Good evening.
+
+I am the curator of the 26th Field Regiment RCA / XII Manitoba Dragoons Museum.
+
+Welcome to our Vimy and Beyond Night.
+
+Enjoy your evening.
+
+Thank you very much.
+
+
+
+## FOMI President’s Greeting - Sandra Armstrong
+
+{{ audio("content/displays/vimy-2025/fomi-greeting/audio.mp3") }}
+
+The Friends of the Museum thank you for attending our Victory ’45 fundraising evening. We are currently experiencing a renewed wave of patriotism in Canada.
+
+Tonight, we hope to reflect the celebrations of 80 years ago when victory bells rang through the streets, the towns, and the cities of Canada.
+
+We appreciate all who attend this evening’s celebrations. Thank you for supporting the museum throughout the year.
+
