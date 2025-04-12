@@ -5,7 +5,7 @@ hide:
 - toc
 ---
 
-{{ carousel("content/events/vimy-2025") }}
+{{ carousel("content/displays/vimy-2025") }}
 
 ## Evening Program
 
@@ -30,7 +30,7 @@ Good evening and thank you for your support.
 
 ## Curator’s Greeting - Edd McArthur
 
-{{ audio("content/events/vimy-2025/curator-greeting/audio.mp3") }}
+{{ audio("content/displays/vimy-2025/curator-greeting/audio.mp3") }}
 
 Good evening.
 
@@ -46,7 +46,7 @@ Thank you very much.
 
 ## FOMI President’s Greeting - Sandra Armstrong
 
-{{ audio("content/events/vimy-2025/fomi-greeting/audio.mp3") }}
+{{ audio("content/displays/vimy-2025/fomi-greeting/audio.mp3") }}
 
 The Friends of the Museum thank you for attending our Victory ’45 fundraising evening. We are currently experiencing a renewed wave of patriotism in Canada.
 

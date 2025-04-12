@@ -20,10 +20,10 @@ def define_env(env):
             raise ValueError(f"No images in {img_dir}")
         slider_class = "slider-nav-visible slider-nav-touch slider-indicators-round" if len(images) > 1 else ""
         html = f'<div class="swiffy-slider {slider_class} slider-nav-animation slider-nav-animation-fadein">'
-        html += '<ul class="slider-container">'
+        html += '<ul class="slider-container no-margin">'
         for p in images:
             i = str(p).replace("content/", "/")
-            html += f'<li><img src="{i}" style="max-width: 100%;height: auto;"></li>'
+            html += f'<li class="swiffy-slide"><img src="{i}" style="max-width: 100%;height: auto;"></li>'
         html += "</ul>"
         html += "</div>"
         return html
