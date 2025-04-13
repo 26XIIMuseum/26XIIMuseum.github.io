@@ -18,7 +18,11 @@ def define_env(env):
         images = [p for p in Path(img_dir).glob("*") if p.suffix in IMAGE_SUFFIXES]
         if not images:
             raise ValueError(f"No images in {img_dir}")
-        slider_class = "slider-nav-visible slider-nav-touch slider-indicators-round" if len(images) > 1 else ""
+        slider_class = (
+            "slider-nav-visible slider-nav-touch slider-indicators-round"
+            if len(images) > 1
+            else ""
+        )
         html = f'<div class="swiffy-slider {slider_class} slider-nav-animation slider-nav-animation-fadein">'
         html += '<ul class="slider-container no-margin">'
         for p in images:
@@ -27,7 +31,7 @@ def define_env(env):
         html += "</ul>"
         html += "</div>"
         return html
-        
+
     @env.macro
     def audio(audio_file):
         if not Path(audio_file).exists():
@@ -35,10 +39,8 @@ def define_env(env):
         html = '<div style="text-align: center" class="audio-controls">'
         a_url = audio_file.replace("content/", "/")
         html += f'<audio class="audio" controls src="{a_url}"></audio>'
-        html += '</div>'
+        html += "</div>"
         return html
-
-        
 
     # create a jinja2 filter
 

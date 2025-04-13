@@ -65,19 +65,19 @@ def get_images(page):
 def aos(content):
     aos_content = ""
     found_h2 = False
-    direction = "left"
+    # direction = "left"
     n = 0
     lines = content.splitlines()
     for line in lines:
         if "<h2 id=" in line:
             if found_h2:
                 aos_content += "\n</div>\n"
-                if "<h2 id=" in"\n".join(lines[n:]):
+                if "<h2 id=" in "\n".join(lines[n:]):
                     aos_content += "\n<hr/>\n"
-            aos_content += f'<div data-aos="zoom-in" data-aos-duration="800">\n'
+            aos_content += f'<div data-aos="fade-down" data-aos-duration="800">\n'
             aos_content += line
             found_h2 = True
-            direction = "right" if direction == "left" else "left"
+            # direction = "right" if direction == "left" else "left"
         else:
             aos_content += line
         n += 1

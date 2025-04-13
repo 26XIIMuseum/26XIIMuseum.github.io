@@ -18,6 +18,10 @@ serve:
 	mkdocs serve -v --watch-theme -a 0.0.0.0:8000
 
 
+.PHONY: static-serve
+static-serve:
+	cd ../ && python -m http.server
+
 .PHONY: img-resize
 img-resize:
 	convert -background none -resize 1200x800 -gravity center -extent 1200x800 -alpha on $(src) $(dst)
@@ -30,7 +34,7 @@ qr-codes:
 
 .PHONY: clean
 clean:
-	rm ../css ../displays ../js ../search ../sitemap.xml ../sitemap.xml.gz -rf
+	cd ../ && rm 404.html  assets  css  displays  events  js  sitemap.xml  sitemap.xml.gz -rf
 
 
 .PHONY: build

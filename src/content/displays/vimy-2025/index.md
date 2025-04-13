@@ -1,8 +1,6 @@
 ---
 title: Vimy and Beyond Night 2025
 hide:
-- navigation
-- toc
 ---
 
 {{ carousel("content/displays/vimy-2025") }}
