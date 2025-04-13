@@ -30,7 +30,7 @@ qr-codes:
 
 .PHONY: clean
 clean:
-	cd ../ && rm 404.html  assets  css  displays  events  js  sitemap.xml  sitemap.xml.gz -rf
+	rm ../css ../displays ../js ../search ../sitemap.xml ../sitemap.xml.gz -rf
 
 
 .PHONY: build
