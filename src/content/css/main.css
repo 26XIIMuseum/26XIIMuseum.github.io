@@ -7,6 +7,10 @@ body, .md-typeset, .md-typeset summary, .md-typeset details, .artifact-link {
 	font-size: 1.4rem;
 }
 
+.md-nav__item, .md-nav, .md-nav__item > .md-nav {
+	font-size: 1.2rem !important; 
+}
+
 .md-typeset h1, .md-typeset h2 {
 	text-align: center;
 	font-weight: bold;
