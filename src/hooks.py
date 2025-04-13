@@ -74,7 +74,7 @@ def aos(content):
                 aos_content += "\n</div>\n"
                 if "<h2 id=" in"\n".join(lines[n:]):
                     aos_content += "\n<hr/>\n"
-            aos_content += f'<div data-aos="zoom-in" data-aos-duration="800">\n'
+            aos_content += f'<div data-aos="fade-{direction}" data-aos-duration="800">\n'
             aos_content += line
             found_h2 = True
             direction = "right" if direction == "left" else "left"
