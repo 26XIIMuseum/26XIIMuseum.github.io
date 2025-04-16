@@ -15,7 +15,7 @@ dev:
 
 .PHONY: serve
 serve:
-	mkdocs serve -v --watch-theme -a 0.0.0.0:8000
+	mkdocs serve -v -a 0.0.0.0:8000
 
 
 .PHONY: static-serve

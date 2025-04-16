@@ -17,4 +17,6 @@ hooks:
 - hooks.py
 plugins:
 - macros
-
+watch:
+- hooks.py
+- overrides
