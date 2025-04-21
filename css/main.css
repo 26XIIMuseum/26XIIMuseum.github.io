@@ -3,7 +3,7 @@
 	padding-top: 0px;	
 }
 
-body, .md-typeset, .md-typeset summary, .md-typeset details, .artifact-link {
+body, .md-typeset, .md-typeset summary, .md-typeset details, .md-header__topic {
 	font-size: 1.4rem;
 }
 
