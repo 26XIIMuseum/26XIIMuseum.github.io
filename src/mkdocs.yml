@@ -5,11 +5,11 @@ theme:
   palette:
     scheme: slate
   font:
-    text: Roboto    
+    text: Roboto
 extra_css:
 - css/main.css
 - css/swiffy-slider.min.css
-- "https://unpkg.com/aos@next/dist/aos.css"
+- css/aos.css
 extra_javascript:
 - js/swiffy-slider.min.js
 docs_dir: content

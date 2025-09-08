@@ -1,6 +1,6 @@
 .md-content, .md-content__inner {
 	margin-top: 0px;
-	padding-top: 0px;	
+	padding-top: 0px;
 }
 
 body, .md-typeset, .md-typeset summary, .md-typeset details, .md-header__topic {
@@ -8,7 +8,7 @@ body, .md-typeset, .md-typeset summary, .md-typeset details, .md-header__topic {
 }
 
 .md-nav__item, .md-nav, .md-nav__item > .md-nav {
-	font-size: 1.2rem !important; 
+	font-size: 1.2rem !important;
 }
 
 .md-typeset h1, .md-typeset h2 {
