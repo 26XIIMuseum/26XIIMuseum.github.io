@@ -11,6 +11,7 @@ extra_css:
 - css/swiffy-slider.min.css
 - css/aos.css
 extra_javascript:
+- js/aos.js
 - js/swiffy-slider.min.js
 docs_dir: content
 hooks:
