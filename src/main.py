@@ -1,7 +1,29 @@
 from pathlib import Path
 
+from jinja2 import Template
+
 IMAGE_SUFFIXES = [".jpg", ".jpeg", ".png"]
 
+
+CAROUSEL_TEMPLATE = r"""
+<div class="swiffy-slider">
+    <ul class="slider-container">
+{% for image_path in image_paths %}
+        <li><img src="{{ image_path }}" style="max-width: 100%;height: auto;"></li>
+{% endfor %}
+    </ul>
+
+    <button type="button" class="slider-nav"></button>
+    <button type="button" class="slider-nav slider-nav-next"></button>
+
+    <div class="slider-indicators">
+        <button class="active"></button>
+        <button></button>
+        <button></button>
+    </div>
+</div>
+
+"""
 
 def define_env(env):
     """
@@ -14,23 +36,13 @@ def define_env(env):
     """
 
     @env.macro
-    def carousel(img_dir):
+    def carousel(img_dir):  # FIXME account for single image
         images = [p for p in Path(img_dir).glob("*") if p.suffix in IMAGE_SUFFIXES]
         if not images:
             raise ValueError(f"No images in {img_dir}")
-        slider_class = (
-            "slider-nav-visible slider-nav-touch slider-indicators-round"
-            if len(images) > 1
-            else ""
-        )
-        html = f'<div class="swiffy-slider {slider_class} slider-nav-animation slider-nav-animation-fadein">'
-        html += '<ul class="slider-container no-margin">'
-        for p in images:
-            i = str(p).replace("content/", "/")
-            html += f'<li class="swiffy-slide"><img src="{i}" style="max-width: 100%;height: auto;"></li>'
-        html += "</ul>"
-        html += "</div>"
-        return html
+        image_paths = [str(i).replace('content/', '/') for i in images]
+        template = Template(CAROUSEL_TEMPLATE)
+        return template.render(image_paths=image_paths)
 
     @env.macro
     def audio(audio_file):

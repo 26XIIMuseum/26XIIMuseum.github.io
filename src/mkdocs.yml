@@ -8,8 +8,8 @@ theme:
     text: Roboto
 extra_css:
 - css/main.css
-- css/swiffy-slider.min.css
 - css/aos.css
+- css/swiffy-slider.min.css
 extra_javascript:
 - js/aos.js
 - js/swiffy-slider.min.js
