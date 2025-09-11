@@ -1,0 +1,27 @@
+SHELL := /bin/bash
+MAKEFLAGS := --always-make
+
+build: clean
+	~/.local/share/pipx/venvs/staticjinja/bin/python build.py
+
+clean:
+	rm public/displays public/_* -rf
+
+init:
+	pipx install staticjinja
+	pipx inject staticjinja Markdown jinja2-simple-tags
+
+fetch-static:
+	mkdir -p public/static/{css,js,img}
+	curl https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css -o public/static/css/pico.min.css
+	curl https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css -o public/static/css/swiffy-slider.min.css
+	curl https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js -o public/static/js/swiffy-slider.min.js
+	curl https://app.unpkg.com/lightgallery@2.9.0-beta.1/css/lightgallery-bundle.min.css -o public/static/css/lightgallery-bundle.min.css
+	# https://app.unpkg.com/lightgallery@2.9.0-beta.1/lightgallery.min.js -o public/static/js/lightgallery.min.js
+
+serve:
+	@ip -br -4 a show eth0
+	cd public && python3 -m http.server -b 0.0.0.0
+
+
+

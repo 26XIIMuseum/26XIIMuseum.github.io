@@ -1,0 +1,19 @@
+<dialog open>
+  <article>
+    <div class="swiffy-slider">
+        <ul class="slider-container">
+{% for img in images %}
+        <li><img src="{{ img }}" style="width:100%"></li>
+{% endfor %}
+        </ul>
+
+        <button type="button" class="slider-nav" aria-label="Go to previous"></button>
+        <button type="button" class="slider-nav slider-nav-next" aria-label="Go to next"></button>
+
+        <div class="slider-indicators">
+            <button aria-label="Go to slide" class="active"></button>
+            <button aria-label="Go to slide"></button>
+        </div>
+    </div>
+  </article>
+</dialog>
