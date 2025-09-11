@@ -1,19 +1,52 @@
-<dialog open>
-  <article>
-    <div class="swiffy-slider">
-        <ul class="slider-container">
-{% for img in images %}
-        <li><img src="{{ img }}" style="width:100%"></li>
-{% endfor %}
-        </ul>
+<div class="pswp-gallery" id="my-gallery">
+    <a
+      href="https://cdn.photoswipe.com/photoswipe-demo-images/photos/1/img-2500.jpg"
+      data-pswp-width="1875"
+      data-pswp-height="2500"
+      target="_blank"
+    >
+      <img
+        src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/1/img-200.jpg"
+        alt=""
+      />
+    </a>
+    <a
+      href="https://cdn.photoswipe.com/photoswipe-demo-images/photos/2/img-2500.jpg"
+      data-pswp-width="1669"
+      data-pswp-height="2500"
+      target="_blank"
+    >
+      <img
+        src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/2/img-200.jpg"
+        alt=""
+      />
+    </a>
+    <a
+      href="https://cdn.photoswipe.com/photoswipe-demo-images/photos/3/img-2500.jpg"
+      data-pswp-width="2500"
+      data-pswp-height="1666"
+      target="_blank"
+    >
+      <img
+        src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/3/img-200.jpg"
+        alt=""
+      />
+    </a>
+</div>
 
-        <button type="button" class="slider-nav" aria-label="Go to previous"></button>
-        <button type="button" class="slider-nav slider-nav-next" aria-label="Go to next"></button>
+<script type="module">
+    import PhotoSwipeLightbox from '/static/js/photoswipe-lightbox.esm.js';
 
-        <div class="slider-indicators">
-            <button aria-label="Go to slide" class="active"></button>
-            <button aria-label="Go to slide"></button>
-        </div>
-    </div>
-  </article>
-</dialog>
+    const lightbox = new PhotoSwipeLightbox({
+        gallery: '#my-gallery',
+        children: 'a',
+        zoomSVG: '.',
+        closeSVG: 'X',
+        pswpModule: () => import('/static/js/photoswipe.esm.js'),
+    });
+
+    lightbox.init();
+    // const zoomButton = document.getElementsByClassName('pswp__button--zoom')[0];
+    // zoomButton.remove()
+</script>
+
