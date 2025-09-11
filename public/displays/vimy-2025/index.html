@@ -9,12 +9,17 @@
       height: 6rem !important;
     }
 
-    button.pswp__button--close {
+    .pswp__button--close {
+      width: 6rem !important;
       height: 6rem !important;
+      font-size: 4rem !important;
+      margin-right: 0.5rem !important;
     }
 
-    .pswp__button--close {
-      font-size: 4rem !important;
+    .pswp__button--zoom {
+      width: 6rem !important;
+      height: 6rem !important;
+      font-size: 3rem !important;
     }
   </style>
 </head>
@@ -68,7 +73,7 @@
             const lightbox = new PhotoSwipeLightbox({
                 gallery: '#my-gallery',
                 children: 'a',
-                zoomSVG: '.',
+                zoomSVG: '&#128269;',
                 closeSVG: 'X',
                 pswpModule: () => import('/static/js/photoswipe.esm.js'),
             });
