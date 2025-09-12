@@ -20,11 +20,12 @@ IMG_GLOBS = [
 ]
 GALLERY_THUMBNAIL_FILENAME = "thumb.jpg"
 GALLERY_THUMBNAIL_SIZE = (600,600)
+GALLERY_THUMBNAIL_DARKEN = 0.2
 GALLERY_THUMBNAIL_TEXT = "Image Gallery"
 GALLERY_THUMBNAIL_TEXT_POSITION = (50, 50)
 GALLERY_THUMBNAIL_TEXT_COLOR = (255, 255, 255)
 try:
-    GALLERY_THUMBNAIL_FONT = ImageFont.truetype("DejaVuSans.ttf", 40)
+    GALLERY_THUMBNAIL_FONT = ImageFont.truetype("DejaVuSerif.ttf", 40)
 except IOError:
     print("Font 'arial.ttf' not found. Using default font.")
     GALLERY_THUMBNAIL_FONT = ImageFont.load_default()
@@ -48,13 +49,17 @@ class SectionExtension(ContainerTag):
 
 def create_thumbnail(src_image):
     thumb_dst = src_image.parent / GALLERY_THUMBNAIL_FILENAME
+    if thumb_dst.exists():
+        thumb_dst.unlink()
     img = Image.open(src_image)
     thumb_img = img.copy()
     thumb_img.thumbnail(GALLERY_THUMBNAIL_SIZE)
-    thumb_draw = ImageDraw.Draw(thumb_img)
-    thumb_draw.text(GALLERY_THUMBNAIL_TEXT_POSITION, GALLERY_THUMBNAIL_TEXT, font=GALLERY_THUMBNAIL_FONT, fill=GALLERY_THUMBNAIL_TEXT_COLOR)
     enhancer = ImageEnhance.Brightness(thumb_img)
-    thumb_img = enhancer.enhance(0.5) # 50% less bright
+    thumb_img = enhancer.enhance(GALLERY_THUMBNAIL_DARKEN)
+    thumb_draw = ImageDraw.Draw(thumb_img)
+    text_posn_x = (thumb_img.width // 2)
+    text_posn_y = (thumb_img.width // 3)
+    thumb_draw.text((text_posn_x, text_posn_y), GALLERY_THUMBNAIL_TEXT, font=GALLERY_THUMBNAIL_FONT, fill=GALLERY_THUMBNAIL_TEXT_COLOR, anchor="mt")
     thumb_img.save(thumb_dst)
     thumb_img.show()
 
@@ -64,7 +69,7 @@ def carousel_global(static_dir):
     thumbnail = None
     for g in IMG_GLOBS:
         for found_img in (Path("public") / Path(static_dir)).glob(g):
-            if not thumbnail:
+            if not thumbnail and found_img.name != GALLERY_THUMBNAIL_FILENAME:
                 create_thumbnail(found_img)
                 thumbnail = True
             images.append(Path("/") / Path(*found_img.parts[1:]))
