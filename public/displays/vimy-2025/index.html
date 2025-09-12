@@ -1,94 +1,14 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<!doctype html>
+<html lang="en">
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
   <title>26XIIMuseum</title>
-  <link rel="stylesheet" href="/static/css/pico.min.css">
+  <link type="text/css" rel="stylesheet" href="/static/css/pico.min.css">
   <link type="text/css" rel="stylesheet" href="/static/css/photoswipe.css" />
-  <style>
-    html, body, article {
-      font-size: 2rem;
-    }
-
-    .pswp__top-bar {
-      height: 6rem !important;
-    }
-
-    .pswp__button--close {
-      width: 6rem !important;
-      height: 6rem !important;
-      font-size: 4rem !important;
-      font-weight: bold;
-      margin-right: 0.5rem !important;
-    }
-
-    .pswp__button--zoom {
-      width: 6rem !important;
-      height: 6rem !important;
-      font-size: 3rem !important;
-    }
-
-</style>
+  <link type="text/css" rel="stylesheet" href="/static/css/main.css" />
 </head>
 <body>
-  <main class="container-fluid">
+  <main class="container">
 
-    <section id="vimy-2025">
-      <article>
-        <h1>Vimy & Beyond 2025</h1>
-            
-
-        <div class="pswp-gallery" id="my-gallery">
-            <a
-              href="https://cdn.photoswipe.com/photoswipe-demo-images/photos/1/img-2500.jpg"
-              data-pswp-width="1875"
-              data-pswp-height="2500"
-              target="_blank"
-            >
-              <img
-                style="width: 100%"
-                src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/1/img-2500.jpg"
-                alt=""
-              />
-            </a>
-            <a
-              href="https://cdn.photoswipe.com/photoswipe-demo-images/photos/2/img-2500.jpg"
-              data-pswp-width="1669"
-              data-pswp-height="2500"
-              target="_blank"
-            >
-            </a>
-            <a
-              href="https://cdn.photoswipe.com/photoswipe-demo-images/photos/3/img-2500.jpg"
-              data-pswp-width="2500"
-              data-pswp-height="1666"
-              target="_blank"
-            >
-            </a>
-        </div>
-
-        <script type="module">
-            import PhotoSwipeLightbox from '/static/js/photoswipe-lightbox.esm.js';
-
-            const lightbox = new PhotoSwipeLightbox({
-                gallery: '#my-gallery',
-                children: 'a',
-                zoomSVG: '&#128269;',
-                closeSVG: 'X',
-                pswpModule: () => import('/static/js/photoswipe.esm.js'),
-            });
-
-            lightbox.init();
-            // const zoomButton = document.getElementsByClassName('pswp__button--zoom')[0];
-            // zoomButton.remove()
-        </script>
-
-
-        This is a test
-
-
-      </article>
-    </section>
-
-  </main>
-</body>
-</html>

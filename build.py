@@ -4,6 +4,7 @@ import os
 from pathlib import Path
 
 import markdown
+from PIL import Image, ImageDraw, ImageFont, ImageEnhance
 from jinja2 import Environment, FileSystemLoader
 from jinja2_simple_tags import ContainerTag
 
@@ -17,6 +18,23 @@ IMG_GLOBS = [
     "*.jpeg",
     "*.png",
 ]
+GALLERY_THUMBNAIL_FILENAME = "thumb.jpg"
+GALLERY_THUMBNAIL_SIZE = (600,600)
+GALLERY_THUMBNAIL_TEXT = "Image Gallery"
+GALLERY_THUMBNAIL_TEXT_POSITION = (50, 50)
+GALLERY_THUMBNAIL_TEXT_COLOR = (255, 255, 255)
+try:
+    GALLERY_THUMBNAIL_FONT = ImageFont.truetype("DejaVuSans.ttf", 40)
+except IOError:
+    print("Font 'arial.ttf' not found. Using default font.")
+    GALLERY_THUMBNAIL_FONT = ImageFont.load_default()
+
+class GalleryImage:
+    def __init__(self, static_path, width, height):
+        self.static_path = static_path
+        self.width = width
+        self.height = height
+
 
 class SectionExtension(ContainerTag):
     tags = {"section"}
@@ -28,10 +46,27 @@ class SectionExtension(ContainerTag):
             "section_content": caller(),
         })
 
+def create_thumbnail(src_image):
+    thumb_dst = src_image.parent / GALLERY_THUMBNAIL_FILENAME
+    img = Image.open(src_image)
+    thumb_img = img.copy()
+    thumb_img.thumbnail(GALLERY_THUMBNAIL_SIZE)
+    thumb_draw = ImageDraw.Draw(thumb_img)
+    thumb_draw.text(GALLERY_THUMBNAIL_TEXT_POSITION, GALLERY_THUMBNAIL_TEXT, font=GALLERY_THUMBNAIL_FONT, fill=GALLERY_THUMBNAIL_TEXT_COLOR)
+    enhancer = ImageEnhance.Brightness(thumb_img)
+    thumb_img = enhancer.enhance(0.5) # 50% less bright
+    thumb_img.save(thumb_dst)
+    thumb_img.show()
+
+
 def carousel_global(static_dir):
     images = []
+    thumbnail = None
     for g in IMG_GLOBS:
         for found_img in (Path("public") / Path(static_dir)).glob(g):
+            if not thumbnail:
+                create_thumbnail(found_img)
+                thumbnail = True
             images.append(Path("/") / Path(*found_img.parts[1:]))
     template = J2_ENV.get_template("_carousel.j2")
     return template.render({"images": images})
