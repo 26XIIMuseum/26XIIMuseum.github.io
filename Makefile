@@ -9,7 +9,7 @@ clean:
 
 init:
 	pipx install staticjinja
-	pipx inject staticjinja Markdown jinja2-simple-tags pillow
+	pipx inject staticjinja Markdown jinja2-simple-tags pillow python-slugify
 
 fetch-static:
 	mkdir -p public/static/{css,js,img}

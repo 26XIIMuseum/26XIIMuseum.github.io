@@ -7,7 +7,7 @@ import markdown
 from PIL import Image, ImageDraw, ImageFont, ImageEnhance
 from jinja2 import Environment, FileSystemLoader
 from jinja2_simple_tags import ContainerTag
-
+from slugify import slugify
 from staticjinja import Site
 
 TEMPLATE_DIR = "src"
@@ -36,6 +36,9 @@ class GalleryImage:
         self.width = width
         self.height = height
 
+    def __str__(self):
+        return f"{self.static_path} ({self.width}x{self.height})"
+
 
 class SectionExtension(ContainerTag):
     tags = {"section"}
@@ -61,20 +64,40 @@ def create_thumbnail(src_image):
     text_posn_y = (thumb_img.width // 3)
     thumb_draw.text((text_posn_x, text_posn_y), GALLERY_THUMBNAIL_TEXT, font=GALLERY_THUMBNAIL_FONT, fill=GALLERY_THUMBNAIL_TEXT_COLOR, anchor="mt")
     thumb_img.save(thumb_dst)
-    thumb_img.show()
+    #thumb_img.show()
 
 
 def carousel_global(static_dir):
-    images = []
+    found_images = []
     thumbnail = None
     for g in IMG_GLOBS:
         for found_img in (Path("public") / Path(static_dir)).glob(g):
+            print(f"Found image {found_img}")
             if not thumbnail and found_img.name != GALLERY_THUMBNAIL_FILENAME:
                 create_thumbnail(found_img)
                 thumbnail = True
-            images.append(Path("/") / Path(*found_img.parts[1:]))
+                print(f"Created thumbmail from {found_img}")
+            if found_img.name != GALLERY_THUMBNAIL_FILENAME:
+                found_images.append(Path("/") / Path(*found_img.parts[1:]))
+            print(f"Added {found_img} to found_images")
+    images = []
+    for i in found_images:
+        img = Image.open(Path("public") / Path(*i.parts[1:]))
+        images.append(GalleryImage(
+            static_path=str(i),
+            width=img.width,
+            height=img.height,
+
+        ))
+    gallery_id = slugify(str(static_dir))
+    thumbnail_static_path = Path("/") / Path(static_dir) / GALLERY_THUMBNAIL_FILENAME
+    print(f"{gallery_id}  images: {[str(i) for i in images]}  thumbnail: {thumbnail_static_path}")
     template = J2_ENV.get_template("_carousel.j2")
-    return template.render({"images": images})
+    return template.render({
+        "gallery_id": gallery_id,
+        "images": images,
+        "thumbnail_static_path": thumbnail_static_path,
+    })
 
 site = Site.make_site(
     searchpath=TEMPLATE_DIR,
