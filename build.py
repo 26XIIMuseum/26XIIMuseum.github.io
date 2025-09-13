@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # build.py
+import json
 import os
+import logging
 from pathlib import Path
 
 import markdown
@@ -9,6 +11,8 @@ from jinja2 import Environment, FileSystemLoader
 from jinja2_simple_tags import ContainerTag
 from slugify import slugify
 from staticjinja import Site
+
+logging.basicConfig(level=logging.INFO)
 
 TEMPLATE_DIR = "src"
 PUBLIC_DIR = "public"
@@ -27,7 +31,7 @@ GALLERY_THUMBNAIL_TEXT_COLOR = (255, 255, 255)
 try:
     GALLERY_THUMBNAIL_FONT = ImageFont.truetype("DejaVuSerif.ttf", 40)
 except IOError:
-    print("Font 'arial.ttf' not found. Using default font.")
+    logging.info("Font 'arial.ttf' not found. Using default font.")
     GALLERY_THUMBNAIL_FONT = ImageFont.load_default()
 
 class GalleryImage:
@@ -64,7 +68,7 @@ def create_thumbnail(src_image):
     text_posn_y = (thumb_img.width // 3)
     thumb_draw.text((text_posn_x, text_posn_y), GALLERY_THUMBNAIL_TEXT, font=GALLERY_THUMBNAIL_FONT, fill=GALLERY_THUMBNAIL_TEXT_COLOR, anchor="mt")
     thumb_img.save(thumb_dst)
-    #thumb_img.show()
+    logging.info(f"Created thumbmail {thumb_dst} from {src_image}")
 
 
 def carousel_global(static_dir):
@@ -72,14 +76,11 @@ def carousel_global(static_dir):
     thumbnail = None
     for g in IMG_GLOBS:
         for found_img in (Path("public") / Path(static_dir)).glob(g):
-            print(f"Found image {found_img}")
             if not thumbnail and found_img.name != GALLERY_THUMBNAIL_FILENAME:
                 create_thumbnail(found_img)
                 thumbnail = True
-                print(f"Created thumbmail from {found_img}")
             if found_img.name != GALLERY_THUMBNAIL_FILENAME:
                 found_images.append(Path("/") / Path(*found_img.parts[1:]))
-            print(f"Added {found_img} to found_images")
     images = []
     for i in found_images:
         img = Image.open(Path("public") / Path(*i.parts[1:]))
@@ -91,7 +92,14 @@ def carousel_global(static_dir):
         ))
     gallery_id = slugify(str(static_dir))
     thumbnail_static_path = Path("/") / Path(static_dir) / GALLERY_THUMBNAIL_FILENAME
-    print(f"{gallery_id}  images: {[str(i) for i in images]}  thumbnail: {thumbnail_static_path}")
+    logging.info(json.dumps({
+        "Carousel": {
+          "id": gallery_id,
+          "images": [str(i) for i in images],
+          "thumbnail": str(thumbnail_static_path),
+        }
+    }, indent=2))
+
     template = J2_ENV.get_template("_carousel.j2")
     return template.render({
         "gallery_id": gallery_id,
