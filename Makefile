@@ -49,6 +49,5 @@ endif
 fussel-build:
 	cd fussel && docker build -t fussel .
 
-galleries:
-	@echo FIXME - http root in config
-	docker run -it -v $$(git rev-parse --show-toplevel)/galleries/displays/vimy-2025/gallery/:/input_path -v $$(git rev-parse --show-toplevel)/public/galleries/displays/vimy-2025/:/output_path fussel bash -c 'cd /fussel && ./generate.sh'
+galleries:  # FIXME - 192 addr
+	GALLERY_TITLE="Vimy 2025 Image Gallery" DISPLAY_URL="http://192.168.2.62:8000/displays/vimy-2025/" sigal build -c sigal/sigal.conf.py galleries/displays/vimy-2025/ public/galleries/displays/vimy-2025/ -n 1

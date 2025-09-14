@@ -1,3 +1,6 @@
+import os
+from pathlib import Path
+
 # All configuration values have a default; values that are commented out serve
 # to show the default. Default values are specified when modified in this
 # example config file
@@ -5,7 +8,7 @@
 # Gallery title. Can be set here or as the '--title' option of the `sigal
 # build` command, or in the 'index.md' file of the source directory.
 # The priority order is: cli option > settings file > index.md file
-title = "Vimy 2025"
+title = os.environ["GALLERY_TITLE"]
 
 # ---------------------
 # General configuration
@@ -13,7 +16,7 @@ title = "Vimy 2025"
 
 # Source directory. Can be set here or as the first argument of the `sigal
 # build` command
-#source = "pictures"
+# source = "pictures"
 
 # Destination directory. Can be set here or as the second argument of the
 # `sigal build` command (default: '_build')
@@ -25,7 +28,7 @@ title = "Vimy 2025"
 theme = "galleria"
 
 # Theme for galleria (https://galleriajs.github.io/themes/)
-galleria_theme = 'folio'
+#galleria_theme = "minimal"
 
 # Author. Used in the footer of the pages and in the author meta tag.
 # author = ''
@@ -37,7 +40,7 @@ galleria_theme = 'folio'
 # use_orig = False
 
 # Path to a CSS file that can be used to customize themes
-# user_css =
+user_css = str(Path(os.environ["HOME"]) / "dev/26XIIMuseum.github.io/sigal/custom.css")
 
 # Enable autoplay (galleria only)
 # autoplay = False
@@ -148,7 +151,7 @@ thumb_size = (280, 210)
 
 # Attribute of Album objects which is used to sort medias (eg 'title'). To
 # sort on a metadata key, use 'meta.key'.
-albums_sort_attr = 'meta.AlbumSortOrder'
+albums_sort_attr = "meta.AlbumSortOrder"
 
 # Reverse sort for albums
 # albums_sort_reverse = False
@@ -232,6 +235,9 @@ ignore_files = []
 # A list of links (tuples (title, URL))
 # links = [('Example link', 'http://example.org'),
 #          ('Another link', 'http://example.org')]
+links = [
+    ("Back to display page", os.environ["DISPLAY_URL"])
+]
 
 # Google Analytics tracking code (UA-xxxx-x)
 # google_analytics = ''
