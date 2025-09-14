@@ -236,7 +236,7 @@ ignore_files = []
 # links = [('Example link', 'http://example.org'),
 #          ('Another link', 'http://example.org')]
 links = [
-    ("Back To Display", os.environ["DISPLAY_URL"])
+    ("To Display", os.environ["DISPLAY_URL"])
 ]
 
 # Google Analytics tracking code (UA-xxxx-x)
