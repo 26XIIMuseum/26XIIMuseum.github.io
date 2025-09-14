@@ -1,11 +1,17 @@
 SHELL := /bin/bash
 MAKEFLAGS := --always-make
 
-build: clean
+build: build-clean
 	~/.local/share/pipx/venvs/staticjinja/bin/python build.py
 
-clean:
-	rm public/displays public/_* -rf
+all: all-clean galleries build
+	@echo build complete
+
+build-clean:
+	sudo rm public/displays public/_* -rf
+
+all-clean:
+	sudo rm public/displays public/galleries public/_* -rf
 
 init:
 	pipx install staticjinja
@@ -40,4 +46,9 @@ endif
 	convert "$(in)" -fill black -colorize "75%" -resize 600x600 -gravity Center -pointsize 60 -fill white -annotate 0 "Image Gallery" "$(out)"
 
 
+fussel-build:
+	cd fussel && docker build -t fussel .
 
+galleries:
+	@echo FIXME - http root in config
+	docker run -it -v $$(git rev-parse --show-toplevel)/galleries/displays/vimy-2025/gallery/:/input_path -v $$(git rev-parse --show-toplevel)/public/galleries/displays/vimy-2025/:/output_path fussel bash -c 'cd /fussel && ./generate.sh'

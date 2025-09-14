@@ -118,4 +118,5 @@ site = Site.make_site(
     }
 )
 
+# FIXME - add own static watcher to restart this?
 site.render(use_reloader=True)

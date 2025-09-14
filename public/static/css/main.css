@@ -2,6 +2,10 @@ html, body, article {
     font-size: 1.2rem;
 }
 
+.msm__float-left {
+    float: left;
+}
+
 .pswp-gallery {
     margin-bottom: 1rem;
 }
@@ -31,4 +35,6 @@ html, body, article {
 .msm__carousel-launch-img {
     border: 1px solid #ccc;
     border-radius: 20px;
+    width: 10rem;
+    height: 10rem;
 }

@@ -1,4 +1,4 @@
-<div class="pswp-gallery" id="{{ gallery_id }}" style="text-align: center">
+<div class="pswp-gallery" id="{{ gallery_id }}" style="float: ; display: inline-block;">
 {% for image in images %}
     <a
       href="{{ image.static_path }}"
@@ -14,11 +14,7 @@
         data-pswp-height="{{ image.height }}"
         target="_blank"
         >
-            <img
-                class="msm__carousel-launch-img"
-                src="{{ thumbnail_static_path }}"
-                target="_blank"
-            />
+            <button>Image Gallery</button>
         </a>
 {% endif %}
     </a>

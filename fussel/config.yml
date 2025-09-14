@@ -1,0 +1,22 @@
+{
+  "gallery": {
+    "input_path": "/input_path",
+    "output_path": "/output_path",
+    "overwrite": true,
+    "exif_transpose": false,
+    "albums": {
+      "recursive": true,
+      "recursive_name_pattern": "{parent_album} > {album}"
+    },
+    "people": {
+      "enable": false
+    },
+    "watermark": {
+      "enable": false
+    }
+  },
+  "site": {
+    "http_root": "/galleries/displays/vimy-2025/",
+    "title": "FIXME"
+  }
+}
