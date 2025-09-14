@@ -50,4 +50,4 @@ fussel-build:
 	cd fussel && docker build -t fussel .
 
 galleries:  # FIXME - 192 addr
-	GALLERY_TITLE="Vimy 2025 Image Gallery" DISPLAY_URL="http://192.168.2.62:8000/displays/vimy-2025/" sigal build -c sigal/sigal.conf.py galleries/displays/vimy-2025/ public/galleries/displays/vimy-2025/ -n 1
+	GALLERY_TITLE="Back To Albums" DISPLAY_URL="http://192.168.2.62:8000/displays/vimy-2025/" sigal build -c sigal/sigal.conf.py galleries/displays/vimy-2025/ public/galleries/displays/vimy-2025/ -n 1
