@@ -1,3 +1,15 @@
 html, body, article {
     font-size: 1.2rem;
 }
+
+.msm__section-title {
+    text-align: center;
+    padding-bottom: 1rem;
+}
+
+.msm__gallery-link-image {
+    filter: invert(100%);
+    width: 40%;
+    float: left;
+    margin: 1rem;
+}
