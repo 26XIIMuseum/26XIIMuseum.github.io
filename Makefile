@@ -1,8 +1,11 @@
 SHELL := /bin/bash
 MAKEFLAGS := --always-make
 
+PYTHON := ~/.local/share/pipx/venvs/staticjinja/bin/python
+
+
 build: build-clean
-	~/.local/share/pipx/venvs/staticjinja/bin/python build.py
+	$(PYTHON) build.py
 
 all: all-clean galleries build
 	@echo build complete
@@ -49,5 +52,11 @@ endif
 fussel-build:
 	cd fussel && docker build -t fussel .
 
-galleries:  # FIXME - 192 addr
-	GALLERY_TITLE="To Albums" DISPLAY_URL="http://192.168.2.62:8000/displays/vimy-2025/" sigal build -c sigal/sigal.conf.py galleries/displays/vimy-2025/ public/galleries/displays/vimy-2025/ -n 1
+gallery:  # FIXME - 192 addr
+	sigal build -c sigal/sigal.conf.py gallery public/gallery
+
+sigal:
+	pipx install -f ~/src/sigal
+
+slugify:
+	$(PYTHON)
