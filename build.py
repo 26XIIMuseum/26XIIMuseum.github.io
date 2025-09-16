@@ -28,10 +28,16 @@ class SectionExtension(ContainerTag):
             "section_content": caller(),
         })
 
-def gallery(gallery_href):
+def gallery_link(gallery_href):
     template = J2_ENV.get_template("_gallery.j2")
     return template.render({
         "gallery_href": gallery_href,
+    })
+
+def audio(audio_src)
+    template = J2_ENV.get_template("_audio.j2")
+    return template.render({
+        "audio_src": audio_src,
     })
 
 site = Site.make_site(
@@ -41,7 +47,8 @@ site = Site.make_site(
         SectionExtension,
     ],
     filters={
-        "gallery": gallery,
+        "audio": audio,
+        "gallery_link": gallery_link,
     }
 )
 
