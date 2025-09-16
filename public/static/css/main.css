@@ -9,7 +9,8 @@ html, body, article {
 
 .msm__gallery-link-image {
     filter: invert(100%);
-    width: 40%;
+    min-width: 20%;
+    max-width: 40%;
     float: left;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
