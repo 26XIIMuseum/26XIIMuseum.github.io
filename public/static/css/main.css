@@ -11,7 +11,7 @@ html, body, article {
     filter: invert(100%);
     min-width: 20%;
     max-width: 40%;
-    float: left;
+    float: right;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     margin-left: 1rem;

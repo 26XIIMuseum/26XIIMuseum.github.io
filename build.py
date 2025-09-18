@@ -28,13 +28,19 @@ class SectionExtension(ContainerTag):
             "section_content": caller(),
         })
 
-def gallery_link(gallery_href):
-    template = J2_ENV.get_template("_gallery.j2")
+class MarkdownExtension(ContainerTag):
+    tags = {"markdown"}
+    def render(self, caller=None):
+        return markdown.markdown(caller())
+
+
+def gallery_link(gallery_link_href):
+    template = J2_ENV.get_template("_gallery_link.j2")
     return template.render({
-        "gallery_href": gallery_href,
+        "gallery_link_href": gallery_link_href,
     })
 
-def audio(audio_src)
+def audio(audio_src):
     template = J2_ENV.get_template("_audio.j2")
     return template.render({
         "audio_src": audio_src,
@@ -44,6 +50,7 @@ site = Site.make_site(
     searchpath=TEMPLATE_DIR,
     outpath=PUBLIC_DIR,
     extensions=[
+        MarkdownExtension,
         SectionExtension,
     ],
     filters={
