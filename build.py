@@ -3,6 +3,7 @@
 import json
 import os
 import logging
+import subprocess
 from pathlib import Path
 
 import markdown
@@ -17,11 +18,16 @@ logging.basicConfig(level=logging.INFO)
 TEMPLATE_DIR = "src"
 PUBLIC_DIR = "public"
 J2_ENV = Environment(loader=FileSystemLoader(TEMPLATE_DIR), trim_blocks=True, lstrip_blocks=True)
+IMG_EXTENSIONS = [
+    ".png",
+    ".jpg",
+    ".jpeg",
+]
 
 class SectionExtension(ContainerTag):
     tags = {"section"}
     def render(self, section_id=None, section_title=None, caller=None):
-        template = J2_ENV.get_template("_section.j2")
+        template = J2_ENV.get_template("_section.html.j2")
         return template.render({
             "section_id": section_id,
             "section_title": section_title,
@@ -33,12 +39,38 @@ class MarkdownExtension(ContainerTag):
     def render(self, caller=None):
         return markdown.markdown(caller())
 
+# convert M-Vimy-LEAD-crop-scaled.jpg -resize "600x600^" -gravity center -crop "600x600+0+0" M-Vimy-LEAD-crop-scaled--thumbnail.jpg
+def make_thumbnail(img):
+    thumb = f"{img.parent}/{img.stem}--thumbnail{img.suffix}"
+    subprocess.check_output([
+        "convert",
+        str(img),
+        "-resize",
+        "600x600^",
+        "-gravity",
+        "center",
+        "-crop",
+        "600x600+0+0",
+        thumb
+    ])
 
-def gallery_link(gallery_link_href):
-    template = J2_ENV.get_template("_gallery_link.j2")
+def gallery(img_dir):
+    public_dir = Path("public") / img_dir.lstrip("/")
+    images = []
+    for img in [i for i in public_dir.glob("*") if i.is_file() and i.suffix in IMG_EXTENSIONS]:
+        if "--thumbnail" in str(img):
+            continue
+        images.append({
+            "img": img,
+            "thumb": make_thumbnail(img)
+        })
+    template = J2_ENV.get_template("_gallery.html.j2")
     return template.render({
-        "gallery_link_href": gallery_link_href,
+        "images": images,
     })
+
+
+
 
 def audio(audio_src):
     template = J2_ENV.get_template("_audio.j2")
@@ -55,7 +87,7 @@ site = Site.make_site(
     ],
     filters={
         "audio": audio,
-        "gallery_link": gallery_link,
+        "gallery": gallery,
     }
 )
 

@@ -41,7 +41,8 @@ serve:
 	@ip -br -4 a show eth0
 	cd public && python3 -m http.server -b 0.0.0.0
 
-thumbnail:
+
+thumbnails:
 	convert M-Vimy-LEAD-crop-scaled.jpg -resize "600x600^" -gravity center -crop "600x600+0+0" M-Vimy-LEAD-crop-scaled--thumbnail.jpg
 
 
