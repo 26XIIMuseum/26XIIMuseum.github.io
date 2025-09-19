@@ -42,13 +42,9 @@ serve:
 	cd public && python3 -m http.server -b 0.0.0.0
 
 thumbnail:
-ifndef in
-	$(error in=/path/to/image required)
-endif
-ifndef out
-	$(error out=/path/to/image required)
-endif
-	convert "$(in)" -fill black -colorize "75%" -resize 600x600 -gravity Center -pointsize 60 -fill white -annotate 0 "Image Gallery" "$(out)"
+	convert M-Vimy-LEAD-crop-scaled.jpg -resize "600x600^" -gravity center -crop "600x600+0+0" M-Vimy-LEAD-crop-scaled--thumbnail.jpg
+
+
 
 
 fussel-build:
