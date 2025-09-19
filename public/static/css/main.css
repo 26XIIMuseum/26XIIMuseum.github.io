@@ -7,19 +7,13 @@ html, body, article {
     padding-bottom: 1rem;
 }
 
-.msm__gallery-link-image {
-    filter: invert(100%);
-    min-width: 20%;
-    max-width: 40%;
-    float: right;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
+.msm__sidebar_img {
+    max-height: 600px;
 }
 
 .flex-container {
     display: flex;
+    align-items: start;
     flex-wrap: wrap;
     gap: 1rem;
     margin-top: 1rem;
