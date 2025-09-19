@@ -3,6 +3,7 @@
 import json
 import os
 import logging
+import re
 import subprocess
 from pathlib import Path
 
@@ -53,19 +54,23 @@ def make_thumbnail(img):
         "600x600+0+0",
         thumb
     ])
+    return thumb
 
-def gallery(img_dir):
+def gallery(img_dir, batch_size=3):
     public_dir = Path("public") / img_dir.lstrip("/")
     images = []
     for img in [i for i in public_dir.glob("*") if i.is_file() and i.suffix in IMG_EXTENSIONS]:
         if "--thumbnail" in str(img):
             continue
+        thumb = make_thumbnail(img)
         images.append({
-            "img": img,
-            "thumb": make_thumbnail(img)
+            "img": re.sub('^public', '', str(img)),
+            "thumb": re.sub('^public', '', str(thumb))
         })
+    print(images)
     template = J2_ENV.get_template("_gallery.html.j2")
     return template.render({
+        "batch_size": batch_size,
         "images": images,
     })
 
