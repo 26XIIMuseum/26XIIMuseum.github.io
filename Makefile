@@ -34,6 +34,8 @@ fetch-static:
 	curl https://unpkg.com/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.js.map -o public/static/js/photoswipe-lightbox.esm.js.map
 	curl https://unpkg.com/photoswipe@5.4.4/dist/photoswipe.esm.js -o public/static/js/photoswipe.esm.js
 	curl https://unpkg.com/photoswipe@5.4.4/dist/photoswipe.esm.js.map -o public/static/js/photoswipe.esm.js.map
+	curl https://codeload.github.com/kristoferjoseph/flexboxgrid/zip/refs/tags/v6.3.1 -o public/static/css/flexboxgrid.zip
+	#curl https://fslightbox.com/f/1/fslightbox-basic-3.7.4.zip -o public/static/js/fslightbox-basic-3.7.4.zip
 
 serve:
 	@ip -br -4 a show eth0

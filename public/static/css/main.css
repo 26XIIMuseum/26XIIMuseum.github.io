@@ -17,3 +17,22 @@ html, body, article {
     margin-left: 1rem;
     margin-right: 1rem;
 }
+
+.msm__sidebar_img {
+    margin-top: 1rem;
+}
+
+.flex-container {
+    display: flex;
+    gap: 1rem;
+}
+
+.column-1 {
+    flex: 1;
+    flex-shrink: 0;
+}
+
+.column-5 {
+    flex: 5;
+    flex-shrink: 0;
+}
