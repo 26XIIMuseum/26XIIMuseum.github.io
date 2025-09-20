@@ -24,6 +24,11 @@ html, body, article {
     gap: 1rem;
 }
 
+.column-1 {
+    flex: 1 0 100%;
+    text-align: center;
+}
+
 .column-3 {
     flex: 1 0 25%;
     text-align: center;

@@ -20,11 +20,17 @@ init:
 	pipx install staticjinja
 	pipx inject staticjinja Markdown jinja2-simple-tags pillow python-slugify
 
+
+# FIXME - put these in subdirs
 fetch-static:
 	mkdir -p public/static/{css,js,img}
+	mkdir -p public/static/{pico,aos}
+	curl https://unpkg.com/aos@next/dist/aos.css -o public/static/aos/aos.css
+	curl https://unpkg.com/aos@next/dist/aos.js -o public/static/aos/aos.js
 	curl https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css -o public/static/css/pico.min.css
 	curl https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.min.css -o public/static/css/pico.classless.min.css
 	curl https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.fluid.classless.min.css -o public/static/css/pico.fluid.classless.min.css
+	curl https://github.com/michalsnik/aos/archive/master.zip -o public/static/aos/master.zip
 	#curl https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css -o public/static/css/swiffy-slider.min.css
 	#curl https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js -o public/static/js/swiffy-slider.min.js
 	#curl https://app.unpkg.com/lightgallery@2.9.0-beta.1/css/lightgallery-bundle.min.css -o public/static/css/lightgallery-bundle.min.css

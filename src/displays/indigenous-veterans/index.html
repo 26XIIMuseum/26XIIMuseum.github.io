@@ -1,11 +1,9 @@
 {% extends "_display.html" %}
 {% block body %}
+
 {% section section_id="indigenous-veterans", section_title="Indigenous Veterans" %}
-
 {{ "/static/displays/indigenous-veterans/indigenous-main.mp3" | audio }}
-
 {{ "/static/displays/indigenous-veterans" | gallery(4) }}
-
 {% markdown %}
 
 This Indigenous display is relatively new to the Museum. To your left is a large oil painting by Indigenous artist Jessie Janusca depicting the role of the Indigenous peoples in the Canadian military over the years. Notice the sacred eagle soaring in the skies over the open grasslands and bison. The Indigenous mother sending her son off to fight in World War I symbolizes the sacrifice of the Indigenous peoples. The uniformed soldier in the centre is Corporal Francis Pegahmagabow who represents the valour and sacrifice of all Indigenous soldiers in Canada’s military. The artist’s rendition of a XII Manitoba Dragoons’ armoured car brings us to World War II, while the rows of grave markers symbolize the sacrifice of all members of Canada’s military. After both wars, Indigenous soldiers not only suffered the trauma of war, but also the overt discrimination by the Canadian government of the time.
@@ -32,9 +30,37 @@ To your right is another shadow box honouring the memory of Private Herman Essie
 
 Below this is an eagle feather which holds great spiritual significance for Indigenous peoples. The eagle feather is used in ceremonies and rituals and is honoured as a sacred object by many tribes. The eagle feather symbolizes strength, wisdom and a strong connection to the Creator.
 
+{% endmarkdown %}
+{% endsection %}
+
+
+
+
+
+
+
+
+{% section section_id="francis-pegahmagabow", section_title="Francis Pegahmagabow" %}
+{{ "/static/displays/indigenous-veterans/francis-pegahmagabow/Pegahmagabow.mp3" | audio }}
+{{ "/static/displays/indigenous-veterans/francis-pegahmagabow" | gallery(1) }}
+{% markdown %}
+
+**Francis Pegahmagabow** was born on March 9, 1891, on the Parry Island Reserve in Ontario where he learned traditional skills such as hunting, fishing, and traditional medicine.
+
+At the outbreak of World War I, Pegahmagabow volunteered for service with the Canadian Expeditionary Force in August 1914. In early October 1914 he was deployed overseas with the 1st Canadian Infantry Battalion of the 1st Canadian Division - the first contingent of Canadian troops sent to fight in Europe.
+
+In April of 1915, Pegahmagabow’s company fought in the Second Battle of Ypres, where the Germans used chlorine gas for the first time on the Western Front. Following the battle, he was promoted to lance corporal. His battalion took part in the Battle of the Somme in 1916, during which he was wounded in the left leg. He received the Military Medal for carrying messages along the lines during these two battles.
+
+In November of 1917, Corporal Pegahmagabow earned a Bar to his Military Medal for his actions in the Second Battle of Passchendaele. During the fighting, Corporal Pegahmagabow played an important role when the battalion's reinforcements became lost. He helped lead the reinforcements to their allocated spot in the line.
+
+During the Battle of the Scarpe in August of 1918, Pegahmagabow was involved in fighting off a German attack at Orix Trench near Upton Wood. His company was almost out of ammunition and in danger of being surrounded. Pegahmagabow braved heavy machine gun and rifle fire by going into no-man's land and brought back enough ammunition to defend the position. For these actions he received a second Bar to his Military Medal.
+
+World War I ended in November of 1918 and in 1919 Pegahmagabow returned to Canada. He was credited with killing 378 Germans and capturing 300 more.  He was first awarded the Military Medal in 1916 and earned two Bars for his excellence as a sniper and scout in the battles of Ypres in 1915, Passchendaele in 1917, Amiens in 1918 and Second Battle of Arras in 1918. On discharge, he was also awarded the 1914–15 Star, the British War Medal, and the Victory Medal.
+
+After the war, Francis Pegahmagabow became an advocate for Indigenous rights and self-determination. He died in August of 1952 at Parry Island, Ontario.
 
 {% endmarkdown %}
-
-
 {% endsection %}
+
+
 {% endblock %}
