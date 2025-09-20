@@ -20,9 +20,7 @@ TEMPLATE_DIR = "src"
 PUBLIC_DIR = "docs"
 J2_ENV = Environment(loader=FileSystemLoader(TEMPLATE_DIR), trim_blocks=True, lstrip_blocks=True)
 IMG_EXTENSIONS = [
-    ".png",
-    ".jpg",
-    ".jpeg",
+    ".webp",
 ]
 
 class SectionExtension(ContainerTag):
