@@ -2,6 +2,15 @@ html, body, article {
     font-size: 1.2rem;
 }
 
+.hero-banner {
+    background-repeat: no-repeat; /* Optional: Controls image repetition */
+    background-size: cover; /* Optional: Scales image to cover the element */
+    background-position-x: 50% !important;
+    background-position-y: 50% !important;
+    color: white; /* Adjust text color for readability if needed */
+    max-height: 8rem;
+}
+
 .audio-container {
     text-align: center;
     margin-bottom: 2rem;

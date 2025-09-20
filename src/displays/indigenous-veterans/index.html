@@ -1,7 +1,9 @@
 {% extends "_display.html" %}
 {% block body %}
 
-{% section section_id="indigenous-veterans", section_title="Indigenous Veterans" %}
+{{ "INDIGENOUS VETERANS" | hero_banner("/static/displays/indigenous-veterans/Painting.webp") }}
+
+{% section section_id="indigenous-veterans" %}
 {{ "/static/displays/indigenous-veterans/indigenous-main.mp3" | audio }}
 {{ "/static/displays/indigenous-veterans" | gallery(4) }}
 {% markdown %}

@@ -1,6 +1,8 @@
     <section id="{{ section_id }}" data-aos="fade-in">
       <article>
+{% if section_title %}
         <h1 class="msm__section-title">{{ section_title | upper }}</h1>
+{% endif %}
             {{ section_content | indent(8) }}
       </article>
     </section>

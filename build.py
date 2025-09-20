@@ -75,10 +75,15 @@ def gallery(img_dir, num_col=3):
     })
 
 
-
+def hero_banner(hero_title, hero_image):
+    template = J2_ENV.get_template("_hero_banner.html.j2")
+    return template.render({
+        "hero_image": hero_image,
+        "hero_title": hero_title,
+    })
 
 def audio(audio_src):
-    template = J2_ENV.get_template("_audio.j2")
+    template = J2_ENV.get_template("_audio.html.j2")
     return template.render({
         "audio_src": audio_src,
     })
@@ -93,6 +98,7 @@ site = Site.make_site(
     filters={
         "audio": audio,
         "gallery": gallery,
+        "hero_banner": hero_banner,
     }
 )
 
