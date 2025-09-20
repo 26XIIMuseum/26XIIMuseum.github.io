@@ -19,6 +19,11 @@ html, body, article {
     font-family: "Unna", serif;
 }
 
+.element-description {
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
 .gallery-grid {
     margin-bottom: 2rem;
 }
