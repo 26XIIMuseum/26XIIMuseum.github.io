@@ -26,6 +26,7 @@ html, body, article {
     text-align: center;
     margin-bottom: 4rem;
     font-family: "Unna", serif;
+    letter-spacing: 0.2rem;;
 }
 
 .element-description {
