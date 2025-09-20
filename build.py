@@ -58,6 +58,7 @@ def make_thumbnail(img):
     ])
     return thumb
 
+
 def gallery(img_dir, num_col=3):
     public_dir = Path(PUBLIC_DIR) / img_dir.lstrip("/")
     images = []
@@ -69,7 +70,6 @@ def gallery(img_dir, num_col=3):
             "img": re.sub(f'^{PUBLIC_DIR}', '', str(img)),
             "thumb": re.sub(f'^{PUBLIC_DIR}', '', str(thumb))
         })
-    print(images)
     template = J2_ENV.get_template("_gallery.html.j2")
     return template.render({
         "num_col": num_col,

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      background: #000;
+      overflow: hidden;
+    }
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      object-fit: contain; /* Keeps aspect ratio */
+    }
+  </style>
+</head>
+<body>
+  <img id="img" src="" alt="Responsive Image">
+  <script>
+    let params = new URLSearchParams(document.location.search);
+    let imgSrc = params.get("imgSrc");
+    console.log(params, imgSrc);
+    const imageElement = document.getElementById("img");
+    imageElement.src = imgSrc;
+  </script>
+</body>
+</html>
