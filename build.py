@@ -59,15 +59,15 @@ def make_thumbnail(img):
     return thumb
 
 def gallery(img_dir, num_col=3):
-    public_dir = Path("public") / img_dir.lstrip("/")
+    public_dir = Path(PUBLIC_DIR) / img_dir.lstrip("/")
     images = []
     for img in [i for i in public_dir.glob("*") if i.is_file() and i.suffix in IMG_EXTENSIONS]:
         if "--thumbnail" in str(img):
             continue
         thumb = make_thumbnail(img)
         images.append({
-            "img": re.sub('^public', '', str(img)),
-            "thumb": re.sub('^public', '', str(thumb))
+            "img": re.sub(f'^{PUBLIC_DIR}', '', str(img)),
+            "thumb": re.sub(f'^{PUBLIC_DIR}', '', str(thumb))
         })
     print(images)
     template = J2_ENV.get_template("_gallery.html.j2")
