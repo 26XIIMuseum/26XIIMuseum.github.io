@@ -4,7 +4,7 @@
 <div class="flex-container gallery-grid">
 {% for image in images %}
     <div class="column-{{ num_col }}">
-        <a href="/image-full.html?imgSrc={{ image.img }}">
+        <a href="/image-full.html?imgSrc={{ image.img | urlencode }}">
           <img src="{{ image.thumb }}" alt="" class="msm__sidebar_img" />
         </a>
     </div>
