@@ -3,8 +3,10 @@ html, body, article {
 }
 
 .msm__section-title {
+    font-size: 4rem;
     text-align: center;
     padding-bottom: 1rem;
+    font-family: "Unna", serif;
 }
 
 .flex-container {
