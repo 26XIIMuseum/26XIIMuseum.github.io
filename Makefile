@@ -21,6 +21,10 @@ init:
 	pipx inject staticjinja Markdown jinja2-simple-tags pillow python-slugify
 
 
+webp:
+	mogrify -format webp *.jpg *.jpeg *.png
+
+
 # FIXME - put these in subdirs
 fetch-static:
 	mkdir -p docs/static/{css,js,img}
