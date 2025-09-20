@@ -1,6 +1,9 @@
-<div class="flex-container">
+<div style="text-align: center; margin-bottom: 0.5rem;">
+  Tap Images For Full Size
+</div>
+<div class="flex-container gallery-grid">
 {% for image in images %}
-    <div class="column-1">
+    <div class="column-{{ num_col }}">
         <a href="{{ image.img }}">
           <img src="{{ image.thumb }}" alt="" class="msm__sidebar_img" />
         </a>

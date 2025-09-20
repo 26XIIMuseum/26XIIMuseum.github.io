@@ -56,7 +56,7 @@ def make_thumbnail(img):
     ])
     return thumb
 
-def gallery(img_dir, batch_size=3):
+def gallery(img_dir, num_col=3):
     public_dir = Path("public") / img_dir.lstrip("/")
     images = []
     for img in [i for i in public_dir.glob("*") if i.is_file() and i.suffix in IMG_EXTENSIONS]:
@@ -70,7 +70,7 @@ def gallery(img_dir, batch_size=3):
     print(images)
     template = J2_ENV.get_template("_gallery.html.j2")
     return template.render({
-        "batch_size": batch_size,
+        "num_col": num_col,
         "images": images,
     })
 

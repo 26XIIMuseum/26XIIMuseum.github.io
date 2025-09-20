@@ -2,11 +2,20 @@ html, body, article {
     font-size: 1.2rem;
 }
 
+.audio-container {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
 .msm__section-title {
     font-size: 4rem;
     text-align: center;
-    padding-bottom: 1rem;
+    margin-bottom: 4rem;
     font-family: "Unna", serif;
+}
+
+.gallery-grid {
+    margin-bottom: 2rem;
 }
 
 .flex-container {
@@ -15,7 +24,12 @@ html, body, article {
     gap: 1rem;
 }
 
-.column-1 {
+.column-3 {
     flex: 1 0 25%;
+    text-align: center;
+}
+
+.column-4 {
+    flex: 1 0 20%;
     text-align: center;
 }
