@@ -29,6 +29,11 @@ html, body, article {
     text-align: center;
 }
 
+.column-2 {
+    flex: 1 0 40%;
+    text-align: center;
+}
+
 .column-3 {
     flex: 1 0 25%;
     text-align: center;

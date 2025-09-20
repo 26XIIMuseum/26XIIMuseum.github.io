@@ -42,7 +42,9 @@ class MarkdownExtension(ContainerTag):
 
 # convert M-Vimy-LEAD-crop-scaled.jpg -resize "600x600^" -gravity center -crop "600x600+0+0" M-Vimy-LEAD-crop-scaled--thumbnail.jpg
 def make_thumbnail(img):
-    thumb = f"{img.parent}/{img.stem}--thumbnail{img.suffix}"
+    thumb = Path(f"{img.parent}/{img.stem}--thumbnail{img.suffix}")
+    if thumb.exists():
+        return thumb
     subprocess.check_output([
         "convert",
         str(img),
@@ -52,7 +54,7 @@ def make_thumbnail(img):
         "center",
         "-crop",
         "600x600+0+0",
-        thumb
+        str(thumb)
     ])
     return thumb
 
