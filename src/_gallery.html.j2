@@ -1,6 +1,5 @@
-{% for image_batch in images | batch(batch_size) %}
 <div class="flex-container">
-{% for image in image_batch %}
+{% for image in images %}
     <div class="column-1">
         <a href="{{ image.img }}">
           <img src="{{ image.thumb }}" alt="" class="msm__sidebar_img" />
@@ -8,4 +7,3 @@
     </div>
 {% endfor %}
 </div>
-{% endfor %}
