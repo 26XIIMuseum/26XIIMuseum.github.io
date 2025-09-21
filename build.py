@@ -88,6 +88,20 @@ def audio(audio_src):
         "audio_src": audio_src,
     })
 
+def index_of(base):
+    base = base[1:] if base.startswith("/") else base
+    base = Path(base)
+    index_dir = (Path("src") / base)
+    i = []
+    if not index_dir.exists():
+        raise ValueError(f"{index_dir} does not exist")
+    for p in index_dir.glob("*"):
+        i.append({
+            "name": p.name,
+            "type": "file" if p.is_file() else "dir"
+        })
+    return i
+
 site = Site.make_site(
     searchpath=TEMPLATE_DIR,
     outpath=PUBLIC_DIR,
@@ -99,6 +113,7 @@ site = Site.make_site(
         "audio": audio,
         "gallery": gallery,
         "hero_banner": hero_banner,
+        "index_of": index_of,
     }
 )
 

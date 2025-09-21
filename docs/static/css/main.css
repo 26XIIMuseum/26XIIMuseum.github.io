@@ -63,3 +63,8 @@ html, body, article {
     flex: 1 0 20%;
     text-align: center;
 }
+
+.site-link {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}

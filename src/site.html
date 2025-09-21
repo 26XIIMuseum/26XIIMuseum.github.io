@@ -1,0 +1,17 @@
+{% extends "_base.html" %}
+{% block body %}
+
+<h1 class="msm__section-title">26XIIMuseum Site Index</h1>
+
+{% for display in  "/displays" | index_of %}
+{% if display.type == "dir" %}
+<div class="site-link">
+    <a href="/displays/{{ display.name }}">{{ display.name | replace("_", " " ) | replace("-", " " ) | title }}</a>
+</div>
+
+{% endif %}
+{% endfor %}
+
+{% endblock %}
+
+
