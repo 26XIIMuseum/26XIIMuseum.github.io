@@ -1,0 +1,24 @@
+{% extends "_display.html" %}
+{% block body %}
+
+{{ "The Memorial Garden" | upper | hero_banner("/static/displays/memorial-garden/garden5.webp") }}
+
+{% section section_id="memorial-garden" %}
+{{ "/static/displays/memorial-garden/main.mp3" | audio }}
+{{ "/static/displays/memorial-garden" | gallery(3) }}
+{% markdown %}
+
+The **Memorial Garden** commemorates Canadian Forces' soldiers from Brandon and area who gave their life defending Canada and freedom. The plaques on the wall list the names of 509 soldiers who perished in conflicts from the Boer War of 1899 to the War in Afghanistan of 2001.
+
+Each spring, volunteers plant the Memorial Garden with beautiful flowers. All summer the flowers are maintained by museum staff. There is a small bench in the Garden and it's a nice place to sit and take a moment to reflect and appreciate the sacrifice of so many for the freedoms we all enjoy today.
+
+Please take a moment to sign the Visitor's Logbook as you leave the Memorial Garden.
+
+
+{% endmarkdown %}
+{% endsection %}
+
+
+{% endblock %}
+
+

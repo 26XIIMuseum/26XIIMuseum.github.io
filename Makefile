@@ -76,9 +76,8 @@ sigal:
 
 
 site-map:
-	@echo '<!DOCTYPE html>' > docs/site.html
-	@echo '<html lang="en">' >> docs/site.html
-	@echo '<body>' >> docs/site.html
-	@for d in $$(ls -1 src/displays/); do echo "<div><a href=\"/displays/$$d/\">$$d</a></div>" >> docs/site.html; done
+	@cp -f site.html.prefix docs/site.html
+	@for d in $$(ls -1 src/displays/); do echo "<div class='site-link'><a href=\"/displays/$$d/\">$$d</a></div>" >> docs/site.html; done
+	@echo '</main>' >> docs/site.html
 	@echo '</body>' >> docs/site.html
 	@echo '</html>' >> docs/site.html
