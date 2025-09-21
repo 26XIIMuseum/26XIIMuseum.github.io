@@ -4,7 +4,7 @@ MAKEFLAGS := --always-make
 PYTHON := ~/.local/share/pipx/venvs/staticjinja/bin/python
 
 
-build: build-clean
+build: build-clean site-map
 	$(PYTHON) build.py
 
 all: all-clean galleries build
@@ -67,5 +67,11 @@ gallery:  # FIXME - 192 addr
 sigal:
 	pipx install -f ~/src/sigal
 
-slugify:
-	$(PYTHON)
+
+site-map:
+	@echo '<!DOCTYPE html>' > docs/site.html
+	@echo '<html lang="en">' >> docs/site.html
+	@echo '<body>' >> docs/site.html
+	@for d in $$(ls -1 src/displays/); do echo "<div><a href=\"/displays/$$d/\">$$d</a></div>" >> docs/site.html; done
+	@echo '</body>' >> docs/site.html
+	@echo '</html>' >> docs/site.html
