@@ -22,7 +22,7 @@ init:
 
 
 webp:
-	mogrify -format webp *.jpg *.jpeg *.png
+	mogrify -format webp *.jpg *.jpeg *.png; rm -f *.jpg *.jpeg *.png
 
 
 # FIXME - put these in subdirs
