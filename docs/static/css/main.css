@@ -8,7 +8,7 @@ html, body, article {
     background-position-x: 50% !important;
     background-position-y: 50% !important;
     color: white; /* Adjust text color for readability if needed */
-    max-height: 8rem;
+    max-height: 12rem;
 }
 
 .audio-container {
