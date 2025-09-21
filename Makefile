@@ -21,6 +21,13 @@ init:
 	pipx inject staticjinja Markdown jinja2-simple-tags pillow python-slugify
 
 
+display:
+ifndef name
+	$(error name is required)
+endif
+	mkdir src/displays/$(name)
+	mkdir docs/static/displays/$(name)
+
 webp:
 	mogrify -format webp *.jpg *.jpeg *.png; rm -f *.jpg *.jpeg *.png
 
