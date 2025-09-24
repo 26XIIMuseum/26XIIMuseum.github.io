@@ -2,6 +2,10 @@ html, body, article {
     font-size: 1.2rem;
 }
 
+.home-banner-image {
+    width: 100%;
+}
+
 .hero-banner {
     background-repeat: no-repeat; /* Optional: Controls image repetition */
     background-size: cover; /* Optional: Scales image to cover the element */

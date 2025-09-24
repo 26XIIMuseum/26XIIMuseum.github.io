@@ -1,0 +1,28 @@
+{% extends "_display.html" %}
+{% block body %}
+
+<img class="home-banner-image" src="/static/Museum.webp" />
+
+{% section section_id="home" %}
+{{ "/static/home/home.mp3" | audio }}
+{{ "/static/home" | gallery(1) }}
+{% markdown %}
+
+Welcome to the 26th Field Regiment Royal Canadian Artillery / XII Manitoba Dragoons Museum. The Museum was founded in 1978 by Retired Colonel Don Berry and Retired Chief Warrant Officer Ross Neale. The Museum acknowledges that we gather on Treaty 2 territory and the shared traditional lands of Cree, Oji-Cree, Dakota, Dene, Anishinaabeg, and the homeland of the Métis nation. The Museum is housed in the Brandon Armoury. The Museum is open to the public every Tuesday from 9 to 12 a.m. and 1 to 3 p.m. Off-hour tours can be arranged by contacting Museum staff. Additional Museum information is available at the Museum's website www.26fdregmuseum or www.12mbdragoons or on Facebook at 26th Field Regiment Royal Canadian Artillery – XII Manitoba Dragoons Museum.
+
+Please use your cellphone or supplied tablet to scan the QR code corresponding to any display that interests you. Museum staff (all volunteers) will be available to answer questions and help you get started on your tour of the Museum.
+
+Don't miss out on the Memorial Garden, the M109 self-propelled Howitzer, and three other memorials all situated on the Armoury grounds.
+
+No food or drinks is allowed in the Museum. Please do not handle the artifacts.
+
+Thanks for visiting the 26th Field Regiment Royal Canadian Artillery / XII Manitoba Dragoons Museum and enjoy your tour. Please sign the Guest Book as you leave the Museum.
+
+
+{% endmarkdown %}
+{% endsection %}
+
+
+{% endblock %}
+
+
