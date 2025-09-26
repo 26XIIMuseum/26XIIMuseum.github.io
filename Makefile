@@ -26,6 +26,7 @@ ifndef name
 	$(error name is required)
 endif
 	mkdir src/displays/$(name)
+	cp src/_display-index-html.template src/displays/$(name)/index.html
 	mkdir docs/static/displays/$(name)
 
 webp:
@@ -61,8 +62,6 @@ serve:
 
 thumbnails:
 	convert M-Vimy-LEAD-crop-scaled.jpg -resize "600x600^" -gravity center -crop "600x600+0+0" M-Vimy-LEAD-crop-scaled--thumbnail.jpg
-
-
 
 
 fussel-build:

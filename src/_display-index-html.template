@@ -1,0 +1,19 @@
+{% extends "_display.html" %}
+{% block body %}
+
+{{ "FIXMETITLE" | upper | hero_banner("/static/displays/FIXME/FIXME.webp") }}
+
+{% section section_id="FIXME" %}
+{{ "/static/displays/FIXME/FIXME.mp3" | audio }}
+{{ "/static/displays/FIXME" | gallery(3) }}
+{% markdown %}
+
+
+
+
+{% endmarkdown %}
+{% endsection %}
+
+{% endblock %}
+
+
