@@ -100,7 +100,7 @@ def index_of(base):
             "name": p.name,
             "type": "file" if p.is_file() else "dir"
         })
-    return i
+    return sorted(i, key=lambda x: x["name"])
 
 site = Site.make_site(
     searchpath=TEMPLATE_DIR,

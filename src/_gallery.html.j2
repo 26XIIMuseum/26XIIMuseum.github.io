@@ -5,7 +5,7 @@
 {% for image in images %}
     <div class="column-{{ num_col }}">
         <a href="/image-full.html?imgSrc={{ image.img | urlencode }}">
-          <img src="{{ image.thumb }}" alt="" class="msm__sidebar_img" />
+          <img src="{{ image.thumb }}" alt="" class="msm__thumbnail_img" />
         </a>
     </div>
 {% endfor %}

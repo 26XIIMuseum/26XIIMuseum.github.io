@@ -4,6 +4,8 @@ html, body, article {
 
 .home-banner-image {
     width: 100%;
+    margin-bottom: 2rem;
+    border: 1px solid #aaa;
 }
 
 .hero-banner {
@@ -13,6 +15,7 @@ html, body, article {
     background-position-y: 50% !important;
     color: white; /* Adjust text color for readability if needed */
     max-height: 12rem;
+    border: 1px solid #aaa;
 }
 
 .audio-container {
@@ -26,11 +29,19 @@ html, body, article {
   }
 }
 
+.msm__section {
+    border: 1px solid #aaa;
+}
+
 .msm__section-title {
     text-align: center;
     margin-bottom: 4rem;
     font-family: "Unna", serif;
     letter-spacing: 0.2rem;;
+}
+
+.msm__section > article {
+    margin-bottom: 0px !important;
 }
 
 .element-description {
@@ -40,6 +51,10 @@ html, body, article {
 
 .gallery-grid {
     margin-bottom: 2rem;
+}
+
+.msm__thumbnail_img {
+    border: 1px solid #aaa;
 }
 
 .flex-container {
