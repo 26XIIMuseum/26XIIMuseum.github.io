@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-# build.py
+
+import base64
 import json
 import os
 import logging
@@ -16,6 +17,13 @@ from staticjinja import Site
 
 logging.basicConfig(level=logging.INFO)
 
+
+def b64encode_filter(data):
+    if isinstance(data, str):
+        data = data.encode("utf-8")
+    return base64.b64encode(data).decode("utf-8")
+
+
 TEMPLATE_DIR = "src"
 PUBLIC_DIR = "docs"
 J2_ENV = Environment(loader=FileSystemLoader(TEMPLATE_DIR), trim_blocks=True, lstrip_blocks=True)
@@ -23,37 +31,47 @@ IMG_EXTENSIONS = [
     ".webp",
 ]
 
+J2_ENV.filters["b64encode"] = b64encode_filter
+
 class SectionExtension(ContainerTag):
     tags = {"section"}
+
     def render(self, section_id=None, section_title=None, caller=None):
         template = J2_ENV.get_template("_section.html.j2")
-        return template.render({
-            "section_id": section_id,
-            "section_title": section_title,
-            "section_content": caller(),
-        })
+        return template.render(
+            {
+                "section_id": section_id,
+                "section_title": section_title,
+                "section_content": caller(),
+            }
+        )
+
 
 class MarkdownExtension(ContainerTag):
     tags = {"markdown"}
+
     def render(self, caller=None):
         return markdown.markdown(caller())
+
 
 # convert M-Vimy-LEAD-crop-scaled.jpg -resize "600x600^" -gravity center -crop "600x600+0+0" M-Vimy-LEAD-crop-scaled--thumbnail.jpg
 def make_thumbnail(img):
     thumb = Path(f"{img.parent}/{img.stem}--thumbnail{img.suffix}")
     if thumb.exists():
         return thumb
-    subprocess.check_output([
-        "convert",
-        str(img),
-        "-resize",
-        "600x600^",
-        "-gravity",
-        "center",
-        "-crop",
-        "600x600+0+0",
-        str(thumb)
-    ])
+    subprocess.check_output(
+        [
+            "convert",
+            str(img),
+            "-resize",
+            "600x600^",
+            "-gravity",
+            "center",
+            "-crop",
+            "600x600+0+0",
+            str(thumb),
+        ]
+    )
     return thumb
 
 
@@ -64,43 +82,51 @@ def gallery(img_dir, num_col=3):
         if "--thumbnail" in str(img):
             continue
         thumb = make_thumbnail(img)
-        images.append({
-            "img": re.sub(f'^{PUBLIC_DIR}', '', str(img)),
-            "thumb": re.sub(f'^{PUBLIC_DIR}', '', str(thumb))
-        })
+        images.append(
+            {
+                "img": re.sub(f"^{PUBLIC_DIR}", "", str(img)),
+                "thumb": re.sub(f"^{PUBLIC_DIR}", "", str(thumb)),
+            }
+        )
     template = J2_ENV.get_template("_gallery.html.j2")
-    return template.render({
-        "num_col": num_col,
-        "images": images,
-    })
+    return template.render(
+        {
+            "num_col": num_col,
+            "images": images,
+        }
+    )
 
 
 def hero_banner(hero_title, hero_image):
     template = J2_ENV.get_template("_hero_banner.html.j2")
-    return template.render({
-        "hero_image": hero_image,
-        "hero_title": hero_title,
-    })
+    return template.render(
+        {
+            "hero_image": hero_image,
+            "hero_title": hero_title,
+        }
+    )
+
 
 def audio(audio_src):
     template = J2_ENV.get_template("_audio.html.j2")
-    return template.render({
-        "audio_src": audio_src,
-    })
+    return template.render(
+        {
+            "audio_src": audio_src,
+        }
+    )
+
 
 def index_of(base):
     base = base[1:] if base.startswith("/") else base
     base = Path(base)
-    index_dir = (Path("src") / base)
+    index_dir = Path("src") / base
     i = []
     if not index_dir.exists():
         raise ValueError(f"{index_dir} does not exist")
     for p in index_dir.glob("*"):
-        i.append({
-            "name": p.name,
-            "type": "file" if p.is_file() else "dir"
-        })
+        i.append({"name": p.name, "type": "file" if p.is_file() else "dir"})
     return sorted(i, key=lambda x: x["name"])
+
 
 site = Site.make_site(
     searchpath=TEMPLATE_DIR,
@@ -110,11 +136,12 @@ site = Site.make_site(
         SectionExtension,
     ],
     filters={
+        "b64encode": b64encode_filter,
         "audio": audio,
         "gallery": gallery,
         "hero_banner": hero_banner,
         "index_of": index_of,
-    }
+    },
 )
 
 site.render(use_reloader=True)
