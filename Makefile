@@ -72,3 +72,7 @@ gallery:  # FIXME - 192 addr
 
 sigal:
 	pipx install -f ~/src/sigal
+
+
+mp3cat:
+	go install github.com/dmulholl/mp3cat@latest
