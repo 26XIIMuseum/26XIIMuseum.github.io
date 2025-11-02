@@ -55,8 +55,9 @@ fetch-static:
 	curl https://codeload.github.com/kristoferjoseph/flexboxgrid/zip/refs/tags/v6.3.1 -o docs/static/css/flexboxgrid.zip
 	#curl https://fslightbox.com/f/1/fslightbox-basic-3.7.4.zip -o docs/static/js/fslightbox-basic-3.7.4.zip
 
+
 serve:
-	@ip -br -4 a show eth0
+	@qrencode -t utf8 http://$$(ip -br -4 addr | grep eth0 | awk '{print $$3}' | sed 's|/.*||g'):8000/site.html
 	cd docs && python3 -m http.server -b 0.0.0.0
 
 
