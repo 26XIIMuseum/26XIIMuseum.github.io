@@ -87,3 +87,7 @@ html, body, article {
     font-size: 2rem;
     margin-bottom: 1rem;
 }
+
+button.fslightboxb {
+    padding: 0px !important;
+}

@@ -89,8 +89,10 @@ def gallery(img_dir, num_col=3):
             }
         )
     template = J2_ENV.get_template("_gallery.html.j2")
+    gallery_id = base64.b64encode(img_dir.encode("utf-8")).decode("utf-8")
     return template.render(
         {
+            "gallery_id": gallery_id,
             "num_col": num_col,
             "images": images,
         }

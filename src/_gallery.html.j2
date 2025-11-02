@@ -4,7 +4,7 @@
 <div class="flex-container gallery-grid">
 {% for image in images %}
     <div class="column-{{ num_col }}">
-        <a data-fslightbox="lightbox-{{ image.img | b64encode }}" href="{{ image.img | urlencode }}">
+        <a data-fslightbox="lightbox-{{ gallery_id }}" href="{{ image.img | urlencode }}">
           <img src="{{ image.thumb }}" alt="" class="msm__thumbnail_img" />
         </a>
     </div>
