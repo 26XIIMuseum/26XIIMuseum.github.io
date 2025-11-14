@@ -7,11 +7,6 @@
 - styles -> typography -> font size presets -> M, L, and XL -> min 2 rem max 2 rem
 - review & save
 
-## Menu
-
-- install Max Mega Menu
-
-
 ## Additional CSS
 
 - browse to `http://<foobar>/wp-admin/customize.php` > Additional CSS
@@ -33,9 +28,17 @@ a.mega-menu-link {
 
 ## Header
 
-- appearance -> editor -> select header right hand rendered page
+- appearance -> editor -> select header right hand rendered page.  Alternatively, while on the homepage, Edit Site
 - in the right panel, select design -> Header inside full-width background
 - select document overview to get tree list of header elements
+
+
+## Menu
+
+- install Max Mega Menu
+- create a new menu for Header location
+- edit the header, delete the Nav, add the Max Mega Menu
+- ensure the menu is "enabled" in Menu Locations
 
 
 ## Lightbox
