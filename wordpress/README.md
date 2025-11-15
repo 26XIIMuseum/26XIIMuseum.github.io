@@ -1,4 +1,8 @@
 
+## Comments / Discussion
+
+- disable
+
 ## Styles
 
 - appearance -> editor -> styles -> browse style -> evening color scheme and platypi & ysabeau office typography
@@ -7,23 +11,27 @@
 - styles -> typography -> font size presets -> M, L, and XL -> min 2 rem max 2 rem
 - review & save
 
+## Fonts
+
+- allow wordpress to download fonts directly from Google
+- install the Unna font
+
 ## Additional CSS
 
 - browse to `http://<foobar>/wp-admin/customize.php` > Additional CSS
 
 ```
-.wp-block-site-title > a {
-	color: #eee !important;
+h1 > a {
+  font-family: "Unna" !important;
 }
 
-.mega-sub-menu > li.mega-menu-item {
-	padding: .5rem !important;
+.mega-menu-item > a {
+	font-family: "Unna" !important;
 }
 
-a.mega-menu-link {
-	font-size: 1.8rem !important;
+a.mega-menu-link:hover {
+	color: #712cf9 !important;
 }
-
 ```
 
 ## Header
@@ -39,6 +47,8 @@ a.mega-menu-link {
 - create a new menu for Header location
 - edit the header, delete the Nav, add the Max Mega Menu
 - ensure the menu is "enabled" in Menu Locations
+- set colors
+- change font size to 1.8 rem for Menu Bar and Mobile Menu
 
 
 ## Lightbox
