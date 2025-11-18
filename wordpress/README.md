@@ -14,23 +14,44 @@
 ## Fonts
 
 - allow wordpress to download fonts directly from Google
-- install the Unna font
+- install the Hanken Grotesk font
 
 ## Additional CSS
 
 - browse to `http://<foobar>/wp-admin/customize.php` > Additional CSS
 
 ```
+h1.wp-block-site-title > a {
+	text-decoration: none;
+	color: white;
+	transition: color 0.2s ease-in-out !important;
+}
+
+h1.wp-block-site-title > a:hover {
+	text-decoration: none !important;
+	color: #1c95d1 !important;
+}
+
+
 h1 > a {
-  font-family: "Unna" !important;
+  font-family: "Hanken Grotesk", sans-serif !important;
 }
 
 .mega-menu-item > a {
-	font-family: "Unna" !important;
+	font-family: "Hanken Grotesk", sans-serif !important;
+}
+
+a.mega-menu-link {
+	color: white;
+	transition: color 0.2s ease-in-out !important;
 }
 
 a.mega-menu-link:hover {
-	color: #712cf9 !important;
+	color: #1c95d1 !important;
+}
+
+.fa {
+  font-family: FontAwesome !important;
 }
 ```
 
