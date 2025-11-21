@@ -34,14 +34,11 @@ h1.wp-block-site-title > a:hover {
 
 
 h1 > a {
-  font-family: "Hanken Grotesk", sans-serif !important;
-}
-
-.mega-menu-item > a {
-	font-family: "Hanken Grotesk", sans-serif !important;
+  font-family: "Sabon" !important;
 }
 
 a.mega-menu-link {
+	margin-bottom: 1rem !important;
 	color: white;
 	transition: color 0.2s ease-in-out !important;
 }
