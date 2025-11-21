@@ -20,38 +20,6 @@
 
 - browse to `http://<foobar>/wp-admin/customize.php` > Additional CSS
 
-```
-h1.wp-block-site-title > a {
-	text-decoration: none;
-	color: white;
-	transition: color 0.2s ease-in-out !important;
-}
-
-h1.wp-block-site-title > a:hover {
-	text-decoration: none !important;
-	color: #1c95d1 !important;
-}
-
-
-h1 > a {
-  font-family: "Sabon" !important;
-}
-
-a.mega-menu-link {
-	margin-bottom: 1rem !important;
-	color: white;
-	transition: color 0.2s ease-in-out !important;
-}
-
-a.mega-menu-link:hover {
-	color: #1c95d1 !important;
-}
-
-.fa {
-  font-family: FontAwesome !important;
-}
-```
-
 ## Header
 
 - appearance -> editor -> select header right hand rendered page.  Alternatively, while on the homepage, Edit Site
