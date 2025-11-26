@@ -1,3 +1,7 @@
+header.wp-block-template-part {
+	border-bottom: 1px solid #eee;
+}
+
 h1.wp-block-site-title > a {
 	text-decoration: none;
 	color: white;
