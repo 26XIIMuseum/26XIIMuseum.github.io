@@ -35,3 +35,7 @@ ul.wp-block-latest-posts > li {
 .fa {
   font-family: FontAwesome !important;
 }
+
+p strong {
+	font-weight: 600 !important;
+}
